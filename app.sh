@@ -6,7 +6,6 @@ _build_rclone() {
   local URL="https://github.com/ncw/rclone/archive/${FILE}"
 
   _download_tgz "${FILE}" "${URL}" "${FOLDER}"
-  mkdir -p "target/${FOLDER}"
   pushd "target/${FOLDER}"
   mkdir -p "${DEST}/bin"
   local GOPATH="${DEST}/bin"
