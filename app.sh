@@ -10,7 +10,8 @@ _build_rclone() {
   local GOPATH="$(pwd)"
   popd
   pushd "target/${FOLDER}"
-  go build -i -v
+  env GOOS=linux GOARCH=arm GOARM=7 go build -i -v
+  mv ./rclone "${DEST}/bin/"
   popd
 }
 
