@@ -6,11 +6,11 @@ _build_rclone() {
   local URL="https://github.com/ncw/rclone/archive/${FILE}"
 
   _download_tgz "${FILE}" "${URL}" "${FOLDER}"
-  pushd "target"
+  # pushd "target"
   mkdir -p "${DEST}/bin"
   local GOPATH="${DEST}/bin"
   go build -i -v
-  popd
+  # popd
 }
 
 
