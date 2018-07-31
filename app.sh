@@ -8,6 +8,8 @@ _build_rclone() {
   _download_tgz "${FILE}" "${URL}" "${FOLDER}"
   pushd "target"
   local GOPATH="$(pwd)"
+  popd
+  pushd "target/${FOLDER}"
   go build -i -v
   popd
 }
