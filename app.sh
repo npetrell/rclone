@@ -11,6 +11,7 @@ _build_rclone() {
   popd
   pushd "target/${FOLDER}"
   env GOOS=linux GOARCH=arm GOARM=7 go build -i -v
+  mkdir -p "${DEST}/bin"
   mv ./rclone "${DEST}/bin/"
   popd
 }
