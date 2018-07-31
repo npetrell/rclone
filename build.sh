@@ -60,7 +60,7 @@ _download_tgz() {
   [[ ! -d "target" ]]        && mkdir -p "target"
   [[ ! -f "download/${1}" ]] && wget -O "download/${1}" "${2}"
   [[   -d "target/${3}" ]]   && rm -vfr "target/${3}"
-  [[ ! -d "target/${3}" ]]   && tar -zxvf "download/${1}" -C "target/${3}"
+  [[ ! -d "target/${3}" ]]   && tar -zxvf "download/${1}" -C target
   return 0
 }
 
