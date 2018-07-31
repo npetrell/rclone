@@ -1,14 +1,13 @@
 ### RCLONE ###
 _build_rclone() {
   local VERSION="1.42"
-  local FOLDER="Rclone-build-${VERSION}"
-  local FILE="v${VERSION}.tar.gz"
+  local FOLDER="src/github.com/ncw/rclone"
+  local BRANCH="v${VERSION}.tar.gz"
   local URL="https://github.com/ncw/rclone/archive/${FILE}"
 
   _download_tgz "${FILE}" "${URL}" "${FOLDER}"
   pushd "target"
-  mkdir -p "${DEST}/bin"
-  local GOPATH="${DEST}/bin"
+  local GOPATH="$(pwd)"
   go build -i -v
   popd
 }
