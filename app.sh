@@ -1,19 +1,14 @@
 ### RCLONE ###
-_build_rclone() {
+_get_rclone() {
   local VERSION="1.42"
-  local FOLDER="src/github.com/ncw/rclone"
-  local FILE="v${VERSION}.tar.gz"
-  local URL="https://github.com/ncw/rclone/archive/${FILE}"
+  local FOLDER="rclone-v${VERSION}"
+  local FILE="rclone-v${VERSION}-linux-arm.zip"
+  local URL="https://github.com/ncw/rclone/releases/download/v${VERSION}/${FILE}"
 
-  _download_tgz "${FILE}" "${URL}" "${FOLDER}"
-  pushd "target"
-  local GOPATH="$(pwd)"
-  popd
-  pushd "target/${FOLDER}"
-  env GOOS=linux GOARCH=arm GOARM=7 go build -i -v
+  _download_zip "${FILE}" "${URL}" "${FOLDER}"
+  f=("$dest"/*) && mv target/*/* target/ && rmdir "${f[@]}"
   mkdir -p "${DEST}/bin"
-  mv ./rclone "${DEST}/bin/"
-  popd
+  mv target/rclone "${DEST}/bin/"
 }
 
 
@@ -28,7 +23,7 @@ _build_certificates() {
 
 
 _build() {
-  _build_rclone
+  _get_rclone
   _build_certificates
   _package
 }
