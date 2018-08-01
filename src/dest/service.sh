@@ -25,4 +25,15 @@ start() {
   ${daemon} --config ${conffile}
 }
 
-main "$@"
+
+# boilerplate
+if [ ! -d "${tmp_dir}" ]; then mkdir -p "${tmp_dir}"; fi
+exec 3>&1 4>&2 1>> "${logfile}" 2>&1
+STDOUT=">&3"
+STDERR=">&4"
+echo "$(date +"%Y-%m-%d %H-%M-%S"):" "${0}" "${@}"
+set -o errexit  # exit on uncaught error code
+set -o nounset  # exit on unset variable
+set -o xtrace   # enable script tracing
+
+main "${@}"
