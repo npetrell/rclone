@@ -6,7 +6,7 @@ _get_rclone() {
   local URL="https://github.com/ncw/rclone/releases/download/v${VERSION}/${FILE}"
 
   _download_zip "${FILE}" "${URL}" "${FOLDER}"
-  f=("$dest"/*) && mv target/*/* target/ && rmdir "${f[@]}"
+  f=(target/*) && mv target/*/* target/ && rmdir "${f[@]}"
   mkdir -p "${DEST}/bin"
   mv target/rclone "${DEST}/bin/"
 }
