@@ -23,8 +23,8 @@ certfile="${prog_dir}/etc/ssl/certs/ca-certificates.crt"
 
 start() {
   # Start ${daemon}, ensure ${pidfile is created}, detach from parent
-  process
-  env SSL_CERT_FILE=${certfile} ${daemon} --config ${conffile}
+  export SSL_CERT_FILE="${certfile}"
+  ${daemon} --config ${conffile} --log-file ${logfile}
 }
 
 
