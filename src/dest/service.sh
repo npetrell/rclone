@@ -19,10 +19,12 @@ tmp_dir="/tmp/DroboApps/${name}"
 pidfile="${tmp_dir}/pid.txt"
 logfile="${tmp_dir}/log.txt"
 
+certfile="${prog_dir}/etc/ssl/certs/ca-certificates.crt"
+
 start() {
   # Start ${daemon}, ensure ${pidfile is created}, detach from parent
   process
-  ${daemon} --config ${conffile}
+  env SSL_CERT_FILE=${certfile} ${daemon} --config ${conffile}
 }
 
 
