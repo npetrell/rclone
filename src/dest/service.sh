@@ -6,7 +6,7 @@
 . /etc/service.subr
 
 framework_version="2.1"
-name="Rclone"
+name="rclone"
 version="1.42"
 description="Rclone is a command line program to sync files and directories to and from various cloud storage services"
 depends=""

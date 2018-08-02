@@ -1,6 +1,6 @@
 <?php
 $app = "rclone";
-$appname = "Rclone";
+$appname = "rclone";
 $appversion = "1.42";
 $appsite = "https://rclone.org";
 $apphelp = "https://rclone.org/docs";
