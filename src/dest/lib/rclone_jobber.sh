@@ -79,7 +79,7 @@ if [ -z "$dest" ]; then
 fi
 
 # if source is empty
-if ! ( ls -1qA $source | grep -q . ); then
+if ! ( ls -1A $source | grep -q . ); then
     print_message "ERROR" "aborted because source is empty."
     exit 1
 fi
