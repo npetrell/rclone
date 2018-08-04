@@ -44,8 +44,8 @@ start() {
   # as messages to stderr.
 
   if [ ! -f "$conffile" ]; then
-    echo "No config file found at $conffile - exiting." > $statusfile
-    echo "3" > $errorfile
+    echo "No config file found at $conffile - exiting." > "${statusfile}"
+    echo "3" > "${errorfile}"
     return 1
   fi
 
