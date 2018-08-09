@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
 # Source: location on Drobo
-source="$HOME/test_rclone_data"
+source="$HOME/fake_dir"
 
 # Dest: pre-configured remote location
-dest="$usb/test_rclone_backup"
+dest="b2-test:smiv-test/bang"
 
 
 prog_dir="$(dirname "$(realpath "${0}")")"
