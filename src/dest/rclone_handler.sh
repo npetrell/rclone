@@ -19,6 +19,6 @@ logfile="${tmp_dir}/log.txt"
 
 move_old_files_to="dated_files"
 
-options="--config="$conffile" --dry-run"
+options="--config="$conffile""
 
 $rclone_jobber "$source" "$dest" "$move_old_files_to" "$options" "$(basename $0)" "" "$rclone_bin" "$logfile"
