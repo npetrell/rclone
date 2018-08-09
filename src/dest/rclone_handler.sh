@@ -21,4 +21,4 @@ move_old_files_to="dated_files"
 
 options="--config="$conffile" --dry-run"
 
-$rclone_jobber "$source" "$dest" "$move_old_files_to" "$options" "$(basename $0)" "$monitoring_URL" "$rclone_bin" "$logfile"
+$rclone_jobber "$source" "$dest" "$move_old_files_to" "$options" "$(basename $0)" "" "$rclone_bin" "$logfile"
