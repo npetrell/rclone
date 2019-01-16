@@ -8,6 +8,12 @@ Check the [releases](https://github.com/droboports/rclone/releases) page. If the
 
 ## How to compile
 
+The simplest way to compile is by using the DroboPorts-provided Docker container to perform the build:
+
+```
+docker run --rm --volume ~/dist:/dist droboports/compiler build https://github.com/orbsmiv/rclone
+```
+
 First make sure that you have a [working cross-compiling VM](https://github.com/droboports/droboports.github.io/wiki/Setting-up-a-VM).
 
 Log in the VM, pick a temporary folder (e.g., `~/build`), and then do:
