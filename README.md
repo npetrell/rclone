@@ -14,6 +14,16 @@ The simplest way to compile is by using the DroboPorts-provided Docker container
 docker run --rm --volume ~/dist:/dist droboports/compiler build https://github.com/orbsmiv/rclone
 ```
 
+Once the _.tgz_ file is in ~/dist, copy it to the following directory on the Drobo:
+
+/mnt/DroboFS/Shares/DroboApps
+
+Finally, to install any tgz files in the above directory, execute the following command on the Drobo:
+
+```
+/usr/bin/DroboApps.sh install
+```
+
 First make sure that you have a [working cross-compiling VM](https://github.com/droboports/droboports.github.io/wiki/Setting-up-a-VM).
 
 Log in the VM, pick a temporary folder (e.g., `~/build`), and then do:
