@@ -85,7 +85,13 @@ if ! ( ls -1A $source | grep -q . ); then
 fi
 
 # if job is already running (maybe previous run didn't finish)
-if pidof -o $PPID -x "$job_name"; then
+
+# JC: -x option (return process ids of shells running the named scripts)
+# is not supported in the BusyBox version of pidof. However, this behaviour seems to be default so
+# I've removed the flag.
+
+#if pidof -o $PPID -x "$job_name"; then
+if pidof -o $PPID "$job_name"; then
     print_message "WARNING" "aborted because it is already running."
     exit 1
 fi
@@ -106,7 +112,10 @@ elif [ "$move_old_files_to" != "" ]; then
 fi
 
 ################################### back up ##################################
-cmd="$rclone_bin sync $source $dest/$new $backup_dir $log_option $options"
+
+# B2 doesn't support server side move or copy so "$backup_dir" must be omitted
+cmd="$rclone_bin sync $source $dest/$new $log_option $options"
+# cmd="$rclone_bin sync $source $dest/$new $backup_dir $log_option $options"
 
 # progress message
 echo "Back up in progress $timestamp $job_name"
