@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+#!/bin/sh
+
+# Note that the shebang must be /bin/sh else the pidof command in the
+# rclone_jobber won't function correctly
 
 # Source: location on Drobo
 source="$HOME/fake_dir"
