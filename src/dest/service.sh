@@ -7,7 +7,7 @@
 
 framework_version="2.1"
 name="rclone"
-version="1.42"
+version="1.45"
 description="Rclone is a command line program to sync files and directories to and from various cloud storage services"
 depends=""
 webui="WebUI"
