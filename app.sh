@@ -1,6 +1,6 @@
 ### RCLONE ###
 _get_rclone() {
-  local VERSION="1.45"
+  local VERSION="1.52.3"
   local FOLDER="rclone-v${VERSION}"
   local FILE="rclone-v${VERSION}-linux-arm.zip"
   local URL="https://github.com/ncw/rclone/releases/download/v${VERSION}/${FILE}"
